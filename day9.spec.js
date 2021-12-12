@@ -52,16 +52,16 @@ describe('day9', () => {
       basins,
     };
   }
-  //   test('part 1 example', () => {
-  //     const parsed = getParsed(exampleInput);
-  //     // console.log(parsed);
-  //     expect(parsed.riskLevel).toBe(15);
-  //   });
-  //   test('part 1', () => {
-  //     const parsed = getParsed(input);
-  //     //   console.log(parsed);
-  //     expect(parsed.riskLevel).toBe(535);
-  //   });
+  test('part 1 example', () => {
+    const parsed = getParsed(exampleInput);
+    // console.log(parsed);
+    expect(parsed.riskLevel).toBe(15);
+  });
+  test('part 1', () => {
+    const parsed = getParsed(input);
+    //   console.log(parsed);
+    expect(parsed.riskLevel).toBe(535);
+  });
   test('part 2 example', () => {
     const parsed = getParsed(exampleInput);
     // console.log(parsed);
@@ -69,12 +69,12 @@ describe('day9', () => {
   });
   test('part 2', () => {
     const parsed = getParsed(input);
-    console.log(
-      'sorted',
-      parsed.basins
-        .map((b) => b.length)
-        .sort((a, b) => (a > b ? -1 : a == b ? 0 : 1))
-    );
+    // console.log(
+    //   'sorted',
+    //   parsed.basins
+    //     .map((b) => b.length)
+    //     .sort((a, b) => (a > b ? -1 : a == b ? 0 : 1))
+    // );
     expect(
       parsed.basins
         .map((b) => b.length)
