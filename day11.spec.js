@@ -124,6 +124,19 @@ describe('day 11', () => {
     console.log('fo re4l', nrgToString(parsed.nrg, parsed.width));
     expect(result).toEqual(1705);
   });
+  test('part 2', () => {
+    let parsed = getParsed(input);
+    let i = 0;
+    let flashes = 0;
+    let tries = 0;
+    while (flashes < 100 && i < 10000) {
+      flashes = step(parsed);
+      console.log(`step ${i}: ${flashes}`);
+      i++;
+    }
+    console.log('fo re4l 2', nrgToString(parsed.nrg, parsed.width));
+    expect(i).toEqual(265);
+  });
 });
 
 const exampleInput = `5483143223
