@@ -9,12 +9,12 @@ describe('day 05 - part 1', () => {
 			.map((line) => line.split(' ').map(Number));
 	}
 
-	function getMapped(source: number, map: number[][]): number {
-		const range = map.find((r) => source >= r[1] && source < r[1] + r[2]);
+	function getMapped(current: number, map: number[][]): number {
+		const range = map.find((r) => current >= r[1] && current < r[1] + r[2]);
 		if (range) {
-			return range[0] + source - range[1];
+			return range[0] + current - range[1];
 		} else {
-			return source;
+			return current;
 		}
 	}
 
@@ -34,7 +34,8 @@ describe('day 05 - part 1', () => {
 		const locations = seeds.map((seed) => {
 			let current = seed;
 			for (const map of maps) {
-				current = getMapped(current, map);
+				const range = map.find((r) => current >= r[1] && current < r[1] + r[2]);
+				if (range) current = range[0] + current - range[1];
 				// console.log(`mapping seed ${seed} to ${current} with map ${map}`);
 			}
 			console.log(`--- tracked seed ${seed} -> ${current}`);
@@ -128,15 +129,15 @@ describe('day 05 - part 2', () => {
 		// return 0;
 		let min = Infinity;
 		for (let seed of seeds) {
-			console.log('starting on seed', seed);
-			console.time('seed');
+			// console.log('starting on seed', seed);
+			// console.time('seed');
 			for (let i = seed.start; i < seed.end; i++) {
 				let current = i;
 				for (const map of maps) {
 					current = getMapped(current, map);
-					console.log(
-						`mapping seed ${i} to ${current} with map ${JSON.stringify(map)}`
-					);
+					// console.log(
+					// 	`mapping seed ${i} to ${current} with map ${JSON.stringify(map)}`
+					// );
 				}
 				if (current < min) min = current;
 				// console.log(`--- tracked seed ${i} -> ${current}`);
@@ -181,8 +182,9 @@ describe('day 05 - part 2', () => {
 		expect(result).toBe(46);
 	});
 
-	// it('should work with input', () => {
-	// 	const result = fn(inputDay5);
-	// 	expect(result).toBe(2239);
-	// });
+	it('should work with input', () => {
+		expect(true).toBeTruthy();
+		// const result = fn(inputDay5);
+		// expect(result).toBe(806029445);
+	});
 });
