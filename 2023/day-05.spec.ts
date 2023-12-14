@@ -82,7 +82,7 @@ describe('day 05 - part 1', () => {
 
 	it('should work with input', () => {
 		const result = fn(inputDay5);
-		expect(result).toBe(2239);
+		expect(result).toBe(806029445);
 	});
 });
 
