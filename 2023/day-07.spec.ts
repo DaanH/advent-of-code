@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { inputDay2 } from './input';
-import { day7Input } from '../day7-input';
+import { day7Input } from './day-07.input';
 
 enum HandType {
 	FIVE_OF_A_KIND, // 0
